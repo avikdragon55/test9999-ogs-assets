@@ -135,3 +135,134 @@ body {
   .Group .banner { min-height: 135px; }
   .Group h2 { font-size: 2rem !important; }
 }
+
+/* Animated Go-board atmosphere and seasonal color cycle */
+body {
+  background-size: 160% 160% !important;
+  animation: test9999-season 24s ease-in-out infinite alternate;
+  cursor: url('https://avikdragon55.github.io/test9999-ogs-assets/test9999-cursor.png') 16 16, crosshair !important;
+}
+
+@keyframes test9999-season {
+  0% { background-position: 0% 20%; }
+  32% { background-position: 45% 0%; }
+  66% { background-position: 100% 50%; }
+  100% { background-position: 30% 100%; }
+}
+
+.Group.container::before {
+  animation: test9999-grid 16s linear infinite;
+}
+
+@keyframes test9999-grid {
+  to { background-position: 42px 42px, 42px 42px; }
+}
+
+/* Floating stones around the group content */
+.Group.container::after {
+  content: '';
+  position: fixed;
+  inset: 4rem 1rem 1rem;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 7% 22%, #f7f3e9 0 15px, #a9a59c 16px 17px, transparent 18px),
+    radial-gradient(circle at 93% 34%, #080a0b 0 18px, #34383a 19px 20px, transparent 21px),
+    radial-gradient(circle at 12% 78%, #090b0d 0 12px, #3b4042 13px 14px, transparent 15px),
+    radial-gradient(circle at 88% 84%, #f8f4e9 0 14px, #aaa69d 15px 16px, transparent 17px);
+  filter: drop-shadow(0 12px 8px rgba(0, 0, 0, .45));
+  animation: test9999-stones 5s ease-in-out infinite alternate;
+}
+
+@keyframes test9999-stones {
+  from { transform: translateY(0) rotate(-1deg); }
+  to { transform: translateY(-14px) rotate(1deg); }
+}
+
+/* Neon section labels */
+.Group .Card > h3,
+.Group .Card > h4,
+.Group .members h3,
+.Group .news h3,
+.Group .ladders h3,
+.Group table caption {
+  position: relative;
+  padding: .7rem 1rem !important;
+  border-left: 4px solid #56e5dc !important;
+  background: linear-gradient(90deg, rgba(49, 142, 137, .24), transparent) !important;
+  color: #73f3e9 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 13px rgba(86, 229, 220, .55) !important;
+}
+
+/* Member cards with rank-style color variation */
+.Group .members .Player,
+.Group .members tr,
+.Group .members li {
+  transition: transform .18s ease, color .18s ease, background .18s ease, box-shadow .18s ease !important;
+}
+
+.Group .members .Player:hover,
+.Group .members tr:hover,
+.Group .members li:hover {
+  position: relative;
+  z-index: 2;
+  color: #fff3bd !important;
+  background: linear-gradient(90deg, rgba(38, 153, 146, .2), rgba(244, 201, 93, .12)) !important;
+  box-shadow: 0 0 18px rgba(86, 229, 220, .2) !important;
+  transform: translateX(5px) translateZ(12px);
+}
+
+.Group .members tr:nth-child(3n+1) .Player { color: #62e9df !important; }
+.Group .members tr:nth-child(3n+2) .Player { color: #ff8a70 !important; }
+.Group .members tr:nth-child(3n) .Player { color: #f4c95d !important; }
+
+/* Ladder podium: gold, silver, bronze */
+.Group .ladders table tbody tr:nth-child(1),
+.Group .TournamentRecord-table tbody tr:nth-child(1) {
+  background: linear-gradient(90deg, rgba(255, 205, 75, .32), rgba(255, 205, 75, .04)) !important;
+  color: #ffe69a !important;
+  box-shadow: inset 4px 0 #ffd45e;
+}
+
+.Group .ladders table tbody tr:nth-child(2),
+.Group .TournamentRecord-table tbody tr:nth-child(2) {
+  background: linear-gradient(90deg, rgba(203, 219, 225, .25), transparent) !important;
+  color: #e7f4f7 !important;
+  box-shadow: inset 4px 0 #cbdbe1;
+}
+
+.Group .ladders table tbody tr:nth-child(3),
+.Group .TournamentRecord-table tbody tr:nth-child(3) {
+  background: linear-gradient(90deg, rgba(205, 128, 75, .28), transparent) !important;
+  color: #ffc095 !important;
+  box-shadow: inset 4px 0 #cd804b;
+}
+
+.Group .ladders table tbody tr:nth-child(1) td:first-child::before { content: '◆ '; color: #ffd45e; }
+.Group .ladders table tbody tr:nth-child(2) td:first-child::before { content: '◆ '; color: #cbdbe1; }
+.Group .ladders table tbody tr:nth-child(3) td:first-child::before { content: '◆ '; color: #cd804b; }
+
+/* Physical button press and challenge glow */
+.Group button:active,
+.Group .btn:active {
+  transform: translateY(5px) !important;
+  box-shadow: 0 1px 0 #6d4211, 0 4px 10px rgba(0, 0, 0, .4) !important;
+}
+
+.Group button.primary,
+.Group .btn.primary {
+  animation: test9999-challenge 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes test9999-challenge {
+  to { filter: brightness(1.12); box-shadow: 0 5px 0 #6d4211, 0 8px 18px rgba(0, 0, 0, .35), 0 0 25px rgba(244, 201, 93, .5) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body, .Group.container::before, .Group.container::after, .Group button.primary, .Group .btn.primary {
+    animation: none !important;
+  }
+}
