@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+body {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0, 235, 225, .17), transparent 32rem),
+    radial-gradient(circle at 88% 30%, rgba(255, 83, 55, .17), transparent 34rem),
+    linear-gradient(145deg, #04090c 0%, #0b151b 52%, #160b0b 100%) fixed !important;
+  color: #eaf8f7 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.Group.container {
+  position: relative;
+  max-width: 1320px !important;
+  padding: 1.25rem !important;
+  color: #eaf8f7 !important;
+  perspective: 1200px;
+}
+
+.Group.container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(53, 230, 220, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(53, 230, 220, .035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.Group .banner {
+  overflow: hidden;
+  min-height: 220px;
+  border: 1px solid rgba(240, 196, 92, .7) !important;
+  border-radius: 10px;
+  background: #05090b url('https://avikdragon55.github.io/test9999-ogs-assets/test9999-banner.png') center / cover no-repeat !important;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, .55), 0 0 32px rgba(0, 224, 215, .15), inset 0 0 45px rgba(0, 0, 0, .6);
+  transform: translateZ(0);
+}
+
+.Group .banner img {
+  width: 100% !important;
+  max-height: 300px !important;
+  opacity: 0 !important;
+}
+
+.Group h2 {
+  margin-top: 1rem !important;
+  color: #f4c95d !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(2rem, 5vw, 4.6rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase;
+  text-shadow: 0 3px 0 #765019, 0 8px 18px rgba(0, 0, 0, .8), 0 0 28px rgba(244, 201, 93, .42) !important;
+}
+
+.Group h3, .Group h4 {
+  color: #58e2d9 !important;
+  font-family: 'Orbitron', sans-serif !important;
+  letter-spacing: .04em;
+  text-shadow: 0 0 14px rgba(88, 226, 217, .38);
+}
+
+.Group .Card,
+.Group .pad,
+.Group .news,
+.Group .members,
+.Group .ladders,
+.Group .invitation-requests {
+  border: 1px solid rgba(89, 221, 211, .24) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(145deg, rgba(21, 39, 46, .9), rgba(8, 17, 22, .92)) !important;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, .3), inset 0 1px rgba(255, 255, 255, .04) !important;
+  backdrop-filter: blur(12px);
+}
+
+.Group .Card:hover {
+  border-color: rgba(244, 201, 93, .55) !important;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, .4), 0 0 20px rgba(244, 201, 93, .1) !important;
+}
+
+.Group a, .Group .Player {
+  color: #69e7de !important;
+  text-shadow: 0 0 9px rgba(105, 231, 222, .22);
+}
+
+.Group button,
+.Group .btn {
+  border: 1px solid rgba(244, 201, 93, .7) !important;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg, #f7d372, #b77a20) !important;
+  color: #101417 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  box-shadow: 0 5px 0 #6d4211, 0 8px 18px rgba(0, 0, 0, .35), 0 0 13px rgba(244, 201, 93, .2) !important;
+  transition: transform .16s ease, box-shadow .16s ease !important;
+}
+
+.Group button:hover,
+.Group .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #6d4211, 0 12px 24px rgba(0, 0, 0, .4), 0 0 22px rgba(244, 201, 93, .38) !important;
+}
+
+.Group table, .Group th, .Group td {
+  border-color: rgba(105, 231, 222, .16) !important;
+  color: #dfefed !important;
+}
+
+.Group th {
+  background: rgba(28, 73, 75, .6) !important;
+  color: #f4c95d !important;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.Group input, .Group textarea, .Group select {
+  border: 1px solid rgba(105, 231, 222, .34) !important;
+  border-radius: 4px !important;
+  background: rgba(2, 10, 14, .88) !important;
+  color: #edf9f8 !important;
+}
+
+.Group hr { border-color: rgba(105, 231, 222, .2) !important; }
+.Group .admins { color: #b7cbc8 !important; }
+.Group blockquote {
+  border-left: 3px solid #f4c95d !important;
+  background: rgba(244, 201, 93, .08) !important;
+  color: #fff2ce !important;
+}
+
+@media (max-width: 700px) {
+  .Group.container { padding: .55rem !important; }
+  .Group .banner { min-height: 135px; }
+  .Group h2 { font-size: 2rem !important; }
+}
