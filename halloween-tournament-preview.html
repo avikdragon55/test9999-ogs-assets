@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planet Go Halloween Tournament Preview</title>
+    <link rel="stylesheet" href="halloween-tournament.css">
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 1rem; background: var(--pg-h-bg); color: var(--pg-h-ink); }
+      .preview-controls { max-width: 1280px; margin: 0 auto 1rem; display: flex; gap: .5rem; }
+      .preview-controls button { padding: .55rem .8rem; cursor: pointer; }
+      .bottom-details { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+      .results { flex: 1 1 42rem; }
+      .player-list { flex: 1 1 16rem; }
+      .Card { padding: 1rem; }
+      table { width: 100%; }
+      th, td { padding: .65rem; text-align: left; }
+      .top-details { display: flex; flex-wrap: wrap; justify-content: space-between; }
+      .top-right-details { min-width: 18rem; }
+      .top-right-details table { width: auto; }
+      .top-right-details th { text-align: right; }
+      .preview-controls button { color: inherit; border: 1px solid currentColor; border-radius: 6px; background: transparent; }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.documentElement.dataset.theme =
+        new URLSearchParams(location.search).get('theme') || 'dark';
+    </script>
+    <div class="preview-controls">
+      <button type="button" onclick="document.documentElement.dataset.theme='light'">Light mode</button>
+      <button type="button" onclick="document.documentElement.dataset.theme='dark'">Dark mode</button>
+    </div>
+
+    <main class="Tournament page-width">
+      <section class="top-details">
+        <div>
+          <h2><i class="fa fa-trophy">♛</i> Planet Go Halloween Open</h2>
+          <h3>One night. Nine rounds. No tricks—just Go.</h3>
+          <p>A friendly seasonal tournament for every rank.</p>
+          <button class="primary">Join tournament</button>
+          <button class="reject">Withdraw</button>
+        </div>
+        <div class="top-right-details">
+          <table>
+            <tr><th>Starts</th><td>October 31, 6:00 PM</td></tr>
+            <tr><th>Format</th><td>McMahon</td></tr>
+            <tr><th>Board</th><td>19×19</td></tr>
+            <tr><th>Players</th><td>64</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section class="bottom-details">
+        <div class="results">
+          <div class="round-group">
+            <h2>Standings</h2>
+            <table>
+              <thead><tr><th>Place</th><th>Player</th><th>Rank</th><th>Points</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><a class="Player player-name clickable"><span>MoonStone</span></a></td><td>2 dan</td><td class="win">4</td></tr>
+                <tr><td>2</td><td><a class="Player player-name clickable"><span>AvikDragon</span></a></td><td>1 kyu</td><td class="tie">3.5</td></tr>
+                <tr><td>3</td><td><a class="Player player-name clickable"><span>GhostCut</span></a></td><td>3 kyu</td><td class="loss">3</td></tr>
+                <tr><td>4</td><td><a class="Player player-name clickable"><span>PumpkinJoseki</span></a></td><td>5 kyu</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="player-list">
+          <h3>Players</h3>
+          <div class="Card">
+            <p><a class="Player">MoonStone</a></p>
+            <p><a class="Player">AvikDragon</a></p>
+            <p><a class="Player">GhostCut</a></p>
+            <p class="player-count">64 players registered</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
