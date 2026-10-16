@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlanetGo Halloween Group Preview</title>
+  <link rel="stylesheet" href="./theme-halloween-2026.css">
+  <style>
+    body { margin: 0; padding: 1px 0; }
+    .row { display:grid; grid-template-columns:2fr 1fr; gap:1rem; }
+    .Group .banner { height:280px; background-image:url('./planet-go-halloween-banner-2026.png') !important; }
+    .Card { padding:0 1rem 1rem; }
+    table { width:100%; }
+    th,td { text-align:left; }
+    .wide { grid-column:1/-1; }
+    @media(max-width:700px){.row{grid-template-columns:1fr}.wide{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main class="Group container">
+    <div class="banner"><img src="./planet-go-halloween-banner-2026.png" alt=""></div>
+    <div class="row">
+      <section class="wide">
+        <h2>PlanetGo</h2>
+        <p class="admins">Admins: AvikDragon55 · Welcome to our Halloween season!</p>
+      </section>
+      <section class="Card news">
+        <h3>Latest News</h3>
+        <h4>ScareGo 2026: The Haunted Goban</h4>
+        <p>The stones are restless. Join our spooky single-elimination tournament and battle your way through the haunted bracket.</p>
+        <button>Join Tournament</button>
+      </section>
+      <section class="Card members">
+        <h3>Members</h3>
+        <p><a href="#">AvikDragon55</a> · <a href="#">PlanetGo Players</a></p>
+        <p>3,500+ Go players exploring the board together.</p>
+      </section>
+      <section class="Card ladders wide">
+        <h3>PlanetGo Ladders</h3>
+        <table>
+          <thead><tr><th>Player</th><th>Rank</th><th>Games</th></tr></thead>
+          <tbody>
+            <tr><td>Ghost Stone</td><td>1 dan</td><td>42</td></tr>
+            <tr><td>Spider Sente</td><td>3 kyu</td><td>31</td></tr>
+            <tr><td>Pumpkin Ko</td><td>7 kyu</td><td>27</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
