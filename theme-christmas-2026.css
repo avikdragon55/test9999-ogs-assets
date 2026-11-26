@@ -67,7 +67,19 @@ body:has(.Group.container) {
   text-align: center;
 }
 
-.Group.container::after { display: none !important; content: none !important; }
+/* Shallow snowdrifts sit below the group content. */
+.Group.container::after {
+  content: '';
+  display: block;
+  height: clamp(14px, 2.5vw, 28px);
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 31% 100% at 12% 115%, #dcece9 0 96%, transparent 100%),
+    radial-gradient(ellipse 27% 80% at 51% 115%, #c4dcda 0 96%, transparent 100%),
+    radial-gradient(ellipse 36% 112% at 91% 115%, #e9f5f1 0 96%, transparent 100%),
+    linear-gradient(0deg, #c4dcda, transparent 55%);
+  opacity: .82;
+}
 
 .Group .banner {
   position: relative;
