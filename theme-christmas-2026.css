@@ -172,16 +172,17 @@ body:has(.Group.container) {
   letter-spacing: -.045em !important;
   text-transform: uppercase;
   text-shadow: 0 4px 0 #5a3b23, 0 12px 26px rgba(0, 0, 0, .65) !important;
+  padding-bottom: calc(1rem + 4px);
+  background: linear-gradient(90deg, var(--pg-x-jade), var(--pg-x-gold), var(--pg-x-cranberry)) left bottom / 74px 4px no-repeat;
 }
 
 .Group h2::after {
-  content: '';
-  display: block;
-  width: 74px;
-  height: 4px;
-  margin-top: 1rem;
-  background: linear-gradient(90deg, var(--pg-x-jade), var(--pg-x-gold), var(--pg-x-cranberry));
-  box-shadow: 0 0 16px rgba(239, 123, 137, .3);
+  content: '🛷' / '';
+  display: inline-block;
+  margin-inline-start: .3em;
+  font-size: .65em;
+  vertical-align: .1em;
+  filter: drop-shadow(0 0 9px rgba(230, 189, 106, .4));
 }
 
 .Group h2::before {
