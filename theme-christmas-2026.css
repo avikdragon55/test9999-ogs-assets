@@ -11,6 +11,15 @@
   --pg-x-paper: #f2eadb;
   --pg-x-cranberry: #ef7b89;
   --pg-x-frost: #d9fff6;
+  --pg-x-light-strand:
+    radial-gradient(ellipse 50% 24px at 50% 0, transparent 93%, #6b7953 95% 99%, transparent 100%),
+    radial-gradient(circle at 10% 15px, #fff7cc 0 2px, #ffbe46 3px, transparent 10px),
+    radial-gradient(circle at 23% 21px, #ffe2df 0 2px, #ff5975 3px, transparent 10px),
+    radial-gradient(circle at 37% 25px, #ecffe8 0 2px, #63f39a 3px, transparent 10px),
+    radial-gradient(circle at 50% 26px, #fff7cc 0 2px, #ffbe46 3px, transparent 10px),
+    radial-gradient(circle at 63% 25px, #e7faff 0 2px, #6de2fc 3px, transparent 10px),
+    radial-gradient(circle at 77% 21px, #ffe2df 0 2px, #ff5975 3px, transparent 10px),
+    radial-gradient(circle at 90% 15px, #fff7cc 0 2px, #ffbe46 3px, transparent 10px);
 }
 
 body:has(.Group.container) {
@@ -62,19 +71,45 @@ body:has(.Group.container) {
 
 .Group .banner {
   position: relative;
-  aspect-ratio: 2172 / 724;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 1;
   margin: 0 !important;
   overflow: hidden;
   border: 0 !important;
   border-bottom: 1px solid rgba(230, 189, 106, .28) !important;
   border-radius: 0 !important;
-  background: #080d0d url('./planet-go-christmas-banner-2026.png') center / cover no-repeat !important;
-  box-shadow: inset 0 -70px 70px rgba(3, 8, 7, .78) !important;
+  background: #080d0d url('./planet-go-christmas-tree-banner.png') center / cover no-repeat !important;
+  box-shadow: inset 0 -70px 70px rgba(3, 8, 7, .46) !important;
 }
 
-.Group .banner::before {
-  display: none;
-  content: none;
+/* Lights drape across the hero and hang from the card headers. */
+.Group .banner::before,
+.Group .Card > h3::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0 0 auto;
+  height: 40px;
+  z-index: 2;
+  background-image: var(--pg-x-light-strand);
+  background-size: 168px 40px;
+  background-repeat: repeat-x;
+  background-position: center top;
+  pointer-events: none;
+}
+
+.Group .Card > h3 {
+  position: relative;
+}
+
+.Group .Card > h3::after {
+  inset: 100% 0 auto;
+  opacity: .8;
+}
+
+.Group .Card > h3 + * {
+  margin-top: 1.8rem;
 }
 
 .Group .banner::after {
@@ -83,7 +118,7 @@ body:has(.Group.container) {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(0deg, rgba(3, 6, 7, .72), transparent 28%),
+    linear-gradient(0deg, rgba(3, 6, 7, .37), transparent 28%),
     linear-gradient(90deg, rgba(5, 12, 11, .28), transparent 35% 65%, rgba(55, 14, 27, .3));
 }
 
