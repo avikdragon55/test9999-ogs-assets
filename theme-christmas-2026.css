@@ -123,7 +123,35 @@ body:has(.Group.container) {
 }
 
 .Group .banner img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0 !important; }
-.Group > .row { padding: 1.25rem !important; }
+.Group > .row {
+  position: relative;
+  padding: 1.25rem !important;
+}
+
+.Group > .row::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .64;
+  background-image:
+    radial-gradient(circle at 13px 29px, #fff 0 1px, transparent 1.8px),
+    radial-gradient(circle at 46px 71px, #d9fff6 0 1.5px, transparent 2.4px),
+    radial-gradient(circle at 81px 48px, #fff 0 2px, transparent 3px);
+  background-size: 83px 113px, 127px 173px, 191px 239px;
+  mask-image: linear-gradient(90deg, #000, transparent 12% 88%, #000);
+  animation: pg-x-snow 18s linear infinite;
+}
+
+@keyframes pg-x-snow {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 83px 113px, -127px 173px, 191px 478px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Group > .row::after { animation: none; }
+}
 
 .Group h2 {
   margin: .25rem 0 1rem !important;
@@ -210,7 +238,7 @@ body:has(.Group.container) {
   margin: 0 !important;
   padding: .8rem 1rem !important;
   border-bottom: 1px solid rgba(162, 236, 216, .12);
-  background: linear-gradient(90deg, #18322d, #141b1b 60%, #3c1927) !important;
+  background: linear-gradient(90deg, #174338, #201b20 58%, #591e31) !important;
 }
 
 .Group a, .Group .Player { color: var(--pg-x-jade-soft) !important; }
