@@ -363,13 +363,16 @@
 }
 
 .Tournament .top-details h2::after {
-  content: '';
-  display: inline-block;
-  width: .64em;
-  height: .96em;
-  margin-inline-start: .28em;
-  vertical-align: -.08em;
-  background: url('./planet-go-tournament-tree.png') center / contain no-repeat;
+  content: '❄';
+  display: inline-flex;
+  align-items: center;
+  min-height: clamp(68px, 8vw, 106px);
+  margin-inline-start: .45rem;
+  padding-inline-end: clamp(52px, 7vw, 85px);
+  vertical-align: middle;
+  font-size: .72em;
+  color: var(--pg-c-teal);
+  background: url('./planet-go-tournament-tree.png') right center / auto 100% no-repeat;
 }
 
 @media (max-width: 800px) {
