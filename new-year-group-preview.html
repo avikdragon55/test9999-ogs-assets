@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlanetGo New Year Group Preview</title>
+  <link rel="stylesheet" href="./ng.css?v=1">
+  <style>
+    body { margin: 0; padding: 1px 0; }
+    .row { display:grid; grid-template-columns:2fr 1fr; gap:1rem; }
+    .Card { padding:0 1rem 1rem; }
+    table { width:100%; }
+    th,td { text-align:left; }
+    .wide { grid-column:1/-1; }
+    @media(max-width:700px){.row{grid-template-columns:1fr}.wide{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main class="Group container">
+    <div class="banner"><img src="./planet-go-new-year-harbor.png" alt="Planet Go. Happy New Year."></div>
+    <div class="row">
+      <section class="wide">
+        <h2>PlanetGo</h2>
+        <p class="admins">Admins: AvikDragon55 · Happy New Year!</p>
+      </section>
+      <section class="Card news">
+        <h3>Latest News</h3>
+        <h4>Welcome to 2027</h4>
+        <p>Start the new year with a game of Go.</p>
+      </section>
+      <section class="Card members">
+        <h3>Members</h3>
+        <p><a href="#">AvikDragon55</a> · <a href="#">PlanetGo Players</a></p>
+        <p>3,500+ Go players exploring the board together.</p>
+      </section>
+      <section class="Card ladders wide">
+        <h3>PlanetGo Ladders</h3>
+        <table>
+          <thead><tr><th>Player</th><th>Rank</th><th>Games</th></tr></thead>
+          <tbody>
+            <tr><td>Star Stone</td><td>1 dan</td><td>42</td></tr>
+            <tr><td>Harbor Sente</td><td>3 kyu</td><td>31</td></tr>
+            <tr><td>Midnight Ko</td><td>7 kyu</td><td>27</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

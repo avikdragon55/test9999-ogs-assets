@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Manrope:wght@500;700;800&display=swap');
+
+:root {
+  --pg-ny-ink: #07100f;
+  --pg-ny-panel: #111b32;
+  --pg-ny-panel-2: #162522;
+  --pg-ny-jade: #51d2ae;
+  --pg-ny-jade-soft: #a2ecd8;
+  --pg-ny-wood: #b9824d;
+  --pg-ny-gold: #e6bd6a;
+  --pg-ny-paper: #f2eadb;
+}
+
+body:has(.Group.container) {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(255, 255, 255, .7) 0 1px, transparent 2px),
+    radial-gradient(circle at 22% 31%, rgba(162, 236, 216, .65) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 12%, rgba(255, 255, 255, .6) 0 1px, transparent 2px),
+    radial-gradient(circle at 89% 39%, rgba(230, 189, 106, .7) 0 1px, transparent 2px),
+    radial-gradient(circle at 61% 69%, rgba(255, 255, 255, .48) 0 1px, transparent 2px),
+    linear-gradient(90deg, rgba(230, 189, 106, .025) 1px, transparent 1px),
+    linear-gradient(rgba(230, 189, 106, .025) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% -10%, #192950 0%, #101a28 38%, #070912 72%, #030407 100%) fixed !important;
+  background-size: 310px 310px, 420px 420px, 370px 370px, 460px 460px, 520px 520px, 52px 52px, 52px 52px, auto !important;
+  color: #eef7f4 !important;
+  cursor: auto !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.Group.container {
+  position: relative;
+  max-width: 1260px !important;
+  margin: 1.5rem auto 5rem !important;
+  padding: 0 !important;
+  color: #eef7f4 !important;
+  border: 1px solid rgba(230, 189, 106, .32);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(17, 27, 50, .96), rgba(6, 12, 26, .98)) !important;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, .6), 0 0 0 7px rgba(230, 189, 106, .035) !important;
+  overflow: hidden;
+}
+
+.Group.container::before {
+  content: 'PLANET GO · NEW YEAR 2027';
+  display: block;
+  padding: .7rem 1.2rem;
+  border-bottom: 1px solid rgba(230, 189, 106, .25);
+  background: #080f0e;
+  color: var(--pg-ny-gold);
+  font: 700 .68rem 'Manrope', sans-serif;
+  letter-spacing: .22em;
+  text-align: center;
+}
+
+.Group.container::after { display: none !important; content: none !important; }
+
+.Group .banner {
+  position: relative;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 1;
+  margin: 0 !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(230, 189, 106, .28) !important;
+  border-radius: 0 !important;
+  background: #080d0d url('./planet-go-new-year-harbor.png') center / cover no-repeat !important;
+  box-shadow: inset 0 -22px 36px rgba(3, 8, 18, .35) !important;
+}
+
+/* Each launch point expands into a two-tone burst. The palette switches between volleys. */
+.Group .banner::before,
+.Group .banner::after {
+  --pg-ny-size: clamp(54px, 13vw, 145px);
+  content: '';
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 82%;
+  width: var(--pg-ny-size);
+  height: var(--pg-ny-size);
+  opacity: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, var(--pg-ny-spark) 0 5px, transparent 9px),
+    radial-gradient(circle at 50% 2%, var(--pg-ny-tip) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 68% 7%, var(--pg-ny-tip) 0 1px, transparent 4px),
+    radial-gradient(circle at 85% 15%, var(--pg-ny-spark) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 94% 31%, var(--pg-ny-tip) 0 1px, transparent 4px),
+    radial-gradient(circle at 98% 51%, var(--pg-ny-spark) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 89% 73%, var(--pg-ny-tip) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 78% 89%, var(--pg-ny-spark) 0 1px, transparent 4px),
+    radial-gradient(circle at 58% 97%, var(--pg-ny-tip) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 36% 94%, var(--pg-ny-spark) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 18% 85%, var(--pg-ny-tip) 0 1px, transparent 4px),
+    radial-gradient(circle at 5% 66%, var(--pg-ny-spark) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 3% 43%, var(--pg-ny-tip) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 12% 23%, var(--pg-ny-spark) 0 1.5px, transparent 5px),
+    radial-gradient(circle at 30% 9%, var(--pg-ny-tip) 0 1px, transparent 4px),
+    radial-gradient(circle at 43% 27%, var(--pg-ny-spark) 0 1.5px, transparent 4px),
+    radial-gradient(circle at 70% 34%, var(--pg-ny-tip) 0 1.5px, transparent 4px),
+    radial-gradient(circle at 72% 65%, var(--pg-ny-spark) 0 1px, transparent 4px),
+    radial-gradient(circle at 49% 76%, var(--pg-ny-tip) 0 1.5px, transparent 4px),
+    radial-gradient(circle at 29% 58%, var(--pg-ny-spark) 0 1.5px, transparent 4px);
+  animation: pg-ny-firework 4s ease-out infinite, pg-ny-palette 8s step-end infinite;
+}
+
+.Group .banner::before {
+  --pg-ny-x: 19%;
+  --pg-ny-y: 26%;
+  --pg-ny-spark: #5de6ff;
+  --pg-ny-tip: #628cff;
+  --pg-ny-hue: 108deg;
+}
+
+.Group .banner::after {
+  --pg-ny-x: 81%;
+  --pg-ny-y: 24%;
+  --pg-ny-spark: #ffd54d;
+  --pg-ny-tip: #ff783d;
+  --pg-ny-hue: 98deg;
+  animation-delay: .24s;
+}
+
+@keyframes pg-ny-firework {
+  0% {
+    left: 50%;
+    top: 82%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.10);
+  }
+
+  4% { opacity: 1; }
+
+  29% {
+    left: var(--pg-ny-x);
+    top: var(--pg-ny-y);
+    transform: translate(-50%, -50%) scale(.14);
+  }
+
+  44% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(.82);
+  }
+
+  78%, 100% {
+    left: var(--pg-ny-x);
+    top: calc(var(--pg-ny-y) + 5%);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes pg-ny-palette {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(var(--pg-ny-hue)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Group .banner::before,
+  .Group .banner::after {
+    animation: none;
+    left: var(--pg-ny-x);
+    top: var(--pg-ny-y);
+    opacity: .75;
+    transform: translate(-50%, -50%) scale(.8);
+  }
+}
+
+.Group .banner img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0 !important; }
+.Group > .row { padding: 1.25rem !important; }
+
+.Group h2 {
+  margin: .25rem 0 1rem !important;
+  color: var(--pg-ny-paper) !important;
+  font: 800 clamp(2.2rem, 5vw, 4.5rem)/.95 'Manrope', sans-serif !important;
+  letter-spacing: -.045em !important;
+  text-transform: uppercase;
+  text-shadow: 0 4px 0 #5a3b23, 0 12px 26px rgba(0, 0, 0, .65) !important;
+}
+
+.Group h2::after {
+  content: '';
+  display: block;
+  width: 74px;
+  height: 4px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, var(--pg-ny-jade), var(--pg-ny-gold));
+  box-shadow: 0 0 16px rgba(81, 210, 174, .3);
+}
+
+.Group h2::before {
+  content: '◉';
+  display: inline-block;
+  margin-right: .3em;
+  color: var(--pg-ny-jade);
+  font-size: .45em;
+  vertical-align: .25em;
+  text-shadow: 0 0 18px rgba(81, 210, 174, .75);
+}
+
+.Group h3, .Group h4, .Group table caption {
+  color: var(--pg-ny-jade-soft) !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em;
+}
+
+.Group .admins {
+  padding: .65rem .8rem !important;
+  border-left: 3px solid var(--pg-ny-wood);
+  background: rgba(185, 130, 77, .08);
+  color: #aebfba !important;
+}
+
+.Group .Card,
+.Group .pad,
+.Group .members,
+.Group .news,
+.Group .ladders,
+.Group .invitation-requests {
+  margin-bottom: 1rem !important;
+  border: 1px solid rgba(162, 236, 216, .13) !important;
+  border-radius: 6px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .025), transparent 40%),
+    var(--pg-ny-panel) !important;
+  box-shadow: 0 15px 28px rgba(0, 0, 0, .25), inset 0 1px rgba(255, 255, 255, .035) !important;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease !important;
+}
+
+.Group .Card:hover {
+  border-color: rgba(81, 210, 174, .38) !important;
+  box-shadow: 0 20px 38px rgba(0, 0, 0, .35), inset 0 1px rgba(255, 255, 255, .045) !important;
+  transform: translateY(-2px);
+}
+
+.Group .Card > h3,
+.Group .Card > h4,
+.Group .members h3,
+.Group .news h3,
+.Group .ladders h3 {
+  margin: 0 !important;
+  padding: .8rem 1rem !important;
+  border-bottom: 1px solid rgba(162, 236, 216, .12);
+  background: linear-gradient(90deg, #18322d, #101c1a) !important;
+}
+
+.Group a, .Group .Player { color: var(--pg-ny-jade-soft) !important; }
+.Group a:hover, .Group .Player:hover { color: #fff !important; }
+
+.Group button, .Group .btn {
+  border: 1px solid #d6a959 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #e9c477, #aa703b) !important;
+  color: #10100e !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 0 #664021, 0 10px 18px rgba(0, 0, 0, .25) !important;
+  transition: transform .14s ease, box-shadow .14s ease !important;
+}
+
+.Group button:hover, .Group .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #664021, 0 14px 24px rgba(0, 0, 0, .35) !important; }
+.Group button:active, .Group .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #664021, 0 5px 10px rgba(0, 0, 0, .3) !important; }
+
+.Group table { overflow: hidden; border-collapse: separate !important; border-spacing: 0 !important; }
+.Group th { padding: .65rem !important; background: #1a342f !important; color: var(--pg-ny-gold) !important; font-family: 'Manrope', sans-serif; }
+.Group td { padding: .58rem .65rem !important; border-color: rgba(162, 236, 216, .08) !important; color: #dce9e5 !important; }
+.Group tbody tr:nth-child(even) { background: rgba(255, 255, 255, .018) !important; }
+.Group tbody tr:hover { background: rgba(81, 210, 174, .08) !important; }
+
+.Group .ladders tbody tr:nth-child(1) { box-shadow: inset 4px 0 #e6bd6a; background: rgba(230, 189, 106, .12) !important; }
+.Group .ladders tbody tr:nth-child(2) { box-shadow: inset 4px 0 #b8c5c8; background: rgba(184, 197, 200, .08) !important; }
+.Group .ladders tbody tr:nth-child(3) { box-shadow: inset 4px 0 #b9824d; background: rgba(185, 130, 77, .09) !important; }
+
+.Group input, .Group textarea, .Group select {
+  border: 1px solid rgba(162, 236, 216, .22) !important;
+  border-radius: 3px !important;
+  background: #07110f !important;
+  color: #eff8f5 !important;
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, .35) !important;
+}
+
+.Group blockquote { padding: .8rem 1rem; border-left: 3px solid var(--pg-ny-gold) !important; background: rgba(230, 189, 106, .06) !important; color: #f2e8d2 !important; }
+.Group hr { border-color: rgba(162, 236, 216, .12) !important; }
+
+@media (max-width: 700px) {
+  .Group.container { margin: .5rem !important; }
+  .Group > .row { padding: .6rem !important; }
+  .Group h2 { font-size: 2.2rem !important; }
+}
