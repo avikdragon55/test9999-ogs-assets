@@ -131,9 +131,6 @@
 .Tournament .top-details {
   position: relative;
   z-index: 1;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) clamp(145px, 20vw, 225px);
-  align-items: start;
   gap: 1rem;
   margin-bottom: 1rem;
   padding: 1.25rem 1.35rem 1.5rem;
@@ -143,27 +140,6 @@
     linear-gradient(90deg, rgba(244, 116, 139, .10), transparent 44%),
     var(--pg-c-panel-soft);
   box-shadow: inset 0 1px rgba(255, 255, 255, .05);
-}
-
-.Tournament .top-details > *,
-.Tournament .top-details .top-right-details {
-  grid-column: 1;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow-wrap: anywhere;
-}
-
-.Tournament .top-details::after {
-  content: '';
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  justify-self: center;
-  align-self: center;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  background: url('./planet-go-tournament-tree.png') center bottom / contain no-repeat;
-  filter: drop-shadow(0 0 18px rgba(213, 172, 72, .24));
-  pointer-events: none;
 }
 
 .Tournament .top-details h2 {
@@ -386,21 +362,14 @@
   background: color-mix(in srgb, var(--pg-c-gold) 14%, transparent) !important;
 }
 
-/* The snowflake follows the motion preference below. */
 .Tournament .top-details h2::after {
-  content: '❄';
+  content: '';
   display: inline-block;
-  margin-left: .45rem;
-  font-size: .72em;
-  color: var(--pg-c-teal);
-  filter: drop-shadow(0 5px 5px var(--pg-c-shadow));
-  transform-origin: 50% 100%;
-  animation: pg-c-snowflake 3.8s ease-in-out infinite;
-}
-
-@keyframes pg-c-snowflake {
-  0%, 100% { transform: rotate(-3deg) translateY(0); }
-  50% { transform: rotate(3deg) translateY(-3px); }
+  width: .64em;
+  height: .96em;
+  margin-inline-start: .28em;
+  vertical-align: -.08em;
+  background: url('./planet-go-tournament-tree.png') center / contain no-repeat;
 }
 
 @media (max-width: 800px) {
@@ -412,8 +381,8 @@
   }
 
   .Tournament .top-details {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 1rem .75rem;
+    display: block !important;
+    padding: 1rem .75rem 1.35rem;
   }
 
   .Tournament .top-details > div,
@@ -426,13 +395,6 @@
     padding-right: 0;
     font-size: 1.65rem !important;
     overflow-wrap: anywhere;
-  }
-
-  .Tournament .top-details::after {
-    grid-column: 1;
-    grid-row: auto;
-    justify-self: end;
-    width: 115px;
   }
 
   .Tournament .sign-up-area {
@@ -452,8 +414,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .Tournament.page-width::after,
-  .Tournament .top-details h2::after {
+  .Tournament.page-width::after {
     animation: none !important;
   }
 
