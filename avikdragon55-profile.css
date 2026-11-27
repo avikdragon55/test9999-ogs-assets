@@ -1,0 +1,47 @@
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"]) {
+  --dragon-gold: #ffda88;
+  --dragon-blue: #a4e8ff;
+  --dragon-text: #edf7ff;
+  box-sizing: border-box;
+  width: min(100% - 1rem, 1380px);
+  max-width: 1380px !important;
+  margin: 1rem auto 3rem;
+  padding: 0 clamp(.65rem, 2.5vw, 2rem) 2rem;
+  border: 1px solid #9edfff57;
+  border-radius: 12px;
+  color: var(--dragon-text);
+  background:
+    radial-gradient(ellipse at 8% 16%, #184369 0%, transparent 49%),
+    radial-gradient(ellipse at 100% 25%, #634422 0%, transparent 39%),
+    #0a1727;
+  box-shadow: 0 18px 46px #050d1a70;
+}
+
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"])::before {
+  content: '';
+  display: block;
+  aspect-ratio: 3 / 1;
+  margin: 0 calc(clamp(.65rem, 2.5vw, 2rem) * -1) 1.25rem;
+  border-radius: 11px 11px 0 0;
+  border-bottom: 2px solid #f3ce83;
+  background: #0c1c30 url('./avikdragon55-dragon-banner.png') center / cover no-repeat;
+}
+
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"]) .Card {
+  border: 1px solid #86caf14d;
+  border-radius: 10px;
+  color: var(--dragon-text);
+  background: linear-gradient(135deg, #132b43, #0d1c2e);
+}
+
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"]) :is(h1, h2, h3, h4) {
+  color: var(--dragon-gold);
+}
+
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"]) .Card a {
+  color: var(--dragon-blue);
+}
+
+.User.container:has(.about-markdown link[href*="test9999-ogs-assets/dp.css"]) .Card a:hover {
+  color: var(--dragon-gold);
+}
