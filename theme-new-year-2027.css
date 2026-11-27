@@ -29,39 +29,22 @@ body:has(.Group.container) {
 }
 
 .Group.container {
-  --pg-ny-harbor-height: clamp(84px, 11vw, 145px);
+  --pg-ny-harbor-height: clamp(110px, 15vw, 190px);
+  --pg-ny-launch: calc(100% - var(--pg-ny-harbor-height) * .48);
+  --pg-ny-hero-end: clamp(125px, 33vw, 420px);
   position: relative;
   max-width: 1260px !important;
   margin: 1.5rem auto 5rem !important;
-  padding: 0 !important;
+  padding: 0 0 var(--pg-ny-harbor-height) !important;
   color: #eef7f4 !important;
   border: 1px solid rgba(230, 189, 106, .32);
   border-radius: 8px;
-  background: linear-gradient(145deg, rgba(17, 27, 50, .96), rgba(6, 12, 26, .98)) !important;
+  background:
+    linear-gradient(#080f20, transparent 26%) center bottom / 100% var(--pg-ny-harbor-height) no-repeat,
+    url('./planet-go-new-year-boat-footer.png') center bottom / max(188%, 1500px) var(--pg-ny-harbor-height) no-repeat,
+    linear-gradient(145deg, rgba(17, 27, 50, .96), rgba(6, 12, 26, .98)) !important;
   box-shadow: 0 35px 90px rgba(0, 0, 0, .6), 0 0 0 7px rgba(230, 189, 106, .035) !important;
   overflow: hidden;
-}
-
-.Group.container::before {
-  content: 'PLANET GO · NEW YEAR 2027';
-  display: block;
-  padding: .7rem 1.2rem;
-  border-bottom: 1px solid rgba(230, 189, 106, .25);
-  background: #080f0e;
-  color: var(--pg-ny-gold);
-  font: 700 .68rem 'Manrope', sans-serif;
-  letter-spacing: .22em;
-  text-align: center;
-}
-
-.Group.container::after {
-  content: '';
-  display: block;
-  height: var(--pg-ny-harbor-height);
-  pointer-events: none;
-  background:
-    linear-gradient(#080f20, transparent 25%),
-    url('./planet-go-new-year-boat-footer.png') center bottom / cover no-repeat;
 }
 
 .Group .banner {
@@ -79,6 +62,8 @@ body:has(.Group.container) {
 }
 
 /* Each launch point expands into a two-tone burst. The palette switches between volleys. */
+.Group.container::before,
+.Group.container::after,
 .Group > .row::before,
 .Group > .row::after {
   --pg-ny-size: clamp(54px, 13vw, 145px);
@@ -86,7 +71,7 @@ body:has(.Group.container) {
   position: absolute;
   z-index: 2;
   left: 50%;
-  top: calc(100% + var(--pg-ny-harbor-height) * .52);
+  top: var(--pg-ny-launch);
   width: var(--pg-ny-size);
   height: var(--pg-ny-size);
   opacity: 0;
@@ -112,43 +97,62 @@ body:has(.Group.container) {
     radial-gradient(circle at 72% 65%, var(--pg-ny-spark) 0 1px, transparent 4px),
     radial-gradient(circle at 49% 76%, var(--pg-ny-tip) 0 1.5px, transparent 4px),
     radial-gradient(circle at 29% 58%, var(--pg-ny-spark) 0 1.5px, transparent 4px);
-  animation: pg-ny-firework 4s ease-out infinite, pg-ny-palette 8s step-end infinite;
+  animation: pg-ny-firework 5s ease-out infinite, pg-ny-palette 10s step-end infinite;
+  animation-delay: var(--pg-ny-delay, 0s);
 }
 
-.Group > .row::before {
-  --pg-ny-x: 14%;
-  --pg-ny-y: calc(100% - clamp(165px, 31vw, 375px));
+.Group.container::before {
+  --pg-ny-x: 17%;
+  --pg-ny-y: calc(var(--pg-ny-hero-end) + 34px);
   --pg-ny-spark: #5de6ff;
   --pg-ny-tip: #628cff;
   --pg-ny-hue: 108deg;
 }
 
-.Group > .row::after {
-  --pg-ny-x: 86%;
-  --pg-ny-y: calc(100% - clamp(180px, 34vw, 410px));
+.Group.container::after {
+  --pg-ny-x: 84%;
+  --pg-ny-y: calc(var(--pg-ny-hero-end) + 92px);
   --pg-ny-spark: #ffd54d;
   --pg-ny-tip: #ff783d;
   --pg-ny-hue: 98deg;
-  animation-delay: .24s;
+  --pg-ny-delay: .38s;
+}
+
+.Group > .row::before {
+  --pg-ny-x: 29%;
+  --pg-ny-y: max(54%, calc(var(--pg-ny-hero-end) + 147px));
+  --pg-ny-spark: #ff82c5;
+  --pg-ny-tip: #b295ff;
+  --pg-ny-hue: 120deg;
+  --pg-ny-delay: 1.55s;
+}
+
+.Group > .row::after {
+  --pg-ny-x: 72%;
+  --pg-ny-y: max(70%, calc(var(--pg-ny-hero-end) + 190px));
+  --pg-ny-spark: #71ff9f;
+  --pg-ny-tip: #fff084;
+  --pg-ny-hue: 84deg;
+  --pg-ny-delay: 2.28s;
 }
 
 @keyframes pg-ny-firework {
   0% {
     left: 50%;
-    top: calc(100% + var(--pg-ny-harbor-height) * .52);
+    top: var(--pg-ny-launch);
     opacity: 0;
     transform: translate(-50%, -50%) scale(.10);
   }
 
   4% { opacity: 1; }
 
-  29% {
+  32% {
     left: var(--pg-ny-x);
     top: var(--pg-ny-y);
     transform: translate(-50%, -50%) scale(.14);
   }
 
-  44% {
+  46% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(.82);
   }
@@ -167,6 +171,8 @@ body:has(.Group.container) {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .Group.container::before,
+  .Group.container::after,
   .Group > .row::before,
   .Group > .row::after {
     animation: none;
@@ -179,7 +185,7 @@ body:has(.Group.container) {
 
 .Group .banner img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0 !important; }
 .Group > .row {
-  position: relative;
+  position: static;
   padding: 1.25rem !important;
 }
 
