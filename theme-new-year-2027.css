@@ -29,6 +29,7 @@ body:has(.Group.container) {
 }
 
 .Group.container {
+  --pg-ny-harbor-height: clamp(84px, 11vw, 145px);
   position: relative;
   max-width: 1260px !important;
   margin: 1.5rem auto 5rem !important;
@@ -53,7 +54,15 @@ body:has(.Group.container) {
   text-align: center;
 }
 
-.Group.container::after { display: none !important; content: none !important; }
+.Group.container::after {
+  content: '';
+  display: block;
+  height: var(--pg-ny-harbor-height);
+  pointer-events: none;
+  background:
+    linear-gradient(#080f20, transparent 25%),
+    url('./planet-go-new-year-boat-footer.png') center bottom / cover no-repeat;
+}
 
 .Group .banner {
   position: relative;
@@ -65,19 +74,19 @@ body:has(.Group.container) {
   border: 0 !important;
   border-bottom: 1px solid rgba(230, 189, 106, .28) !important;
   border-radius: 0 !important;
-  background: #080d0d url('./planet-go-new-year-harbor.png') center / cover no-repeat !important;
+  background: #080d0d url('./planet-go-new-year-go-banner.png') center / cover no-repeat !important;
   box-shadow: inset 0 -22px 36px rgba(3, 8, 18, .35) !important;
 }
 
 /* Each launch point expands into a two-tone burst. The palette switches between volleys. */
-.Group .banner::before,
-.Group .banner::after {
+.Group > .row::before,
+.Group > .row::after {
   --pg-ny-size: clamp(54px, 13vw, 145px);
   content: '';
   position: absolute;
   z-index: 2;
   left: 50%;
-  top: 82%;
+  top: calc(100% + var(--pg-ny-harbor-height) * .52);
   width: var(--pg-ny-size);
   height: var(--pg-ny-size);
   opacity: 0;
@@ -106,17 +115,17 @@ body:has(.Group.container) {
   animation: pg-ny-firework 4s ease-out infinite, pg-ny-palette 8s step-end infinite;
 }
 
-.Group .banner::before {
-  --pg-ny-x: 19%;
-  --pg-ny-y: 26%;
+.Group > .row::before {
+  --pg-ny-x: 14%;
+  --pg-ny-y: calc(100% - clamp(165px, 31vw, 375px));
   --pg-ny-spark: #5de6ff;
   --pg-ny-tip: #628cff;
   --pg-ny-hue: 108deg;
 }
 
-.Group .banner::after {
-  --pg-ny-x: 81%;
-  --pg-ny-y: 24%;
+.Group > .row::after {
+  --pg-ny-x: 86%;
+  --pg-ny-y: calc(100% - clamp(180px, 34vw, 410px));
   --pg-ny-spark: #ffd54d;
   --pg-ny-tip: #ff783d;
   --pg-ny-hue: 98deg;
@@ -126,7 +135,7 @@ body:has(.Group.container) {
 @keyframes pg-ny-firework {
   0% {
     left: 50%;
-    top: 82%;
+    top: calc(100% + var(--pg-ny-harbor-height) * .52);
     opacity: 0;
     transform: translate(-50%, -50%) scale(.10);
   }
@@ -146,7 +155,7 @@ body:has(.Group.container) {
 
   78%, 100% {
     left: var(--pg-ny-x);
-    top: calc(var(--pg-ny-y) + 5%);
+    top: calc(var(--pg-ny-y) + 22px);
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.08);
   }
@@ -158,8 +167,8 @@ body:has(.Group.container) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .Group .banner::before,
-  .Group .banner::after {
+  .Group > .row::before,
+  .Group > .row::after {
     animation: none;
     left: var(--pg-ny-x);
     top: var(--pg-ny-y);
@@ -169,7 +178,10 @@ body:has(.Group.container) {
 }
 
 .Group .banner img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; opacity: 0 !important; }
-.Group > .row { padding: 1.25rem !important; }
+.Group > .row {
+  position: relative;
+  padding: 1.25rem !important;
+}
 
 .Group h2 {
   margin: .25rem 0 1rem !important;
