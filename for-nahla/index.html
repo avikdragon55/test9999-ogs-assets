@@ -43,7 +43,8 @@ dd{margin:0;font:600 clamp(1.2rem,4vw,1.75rem) var(--serif)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:clamp(1.25rem,5vw,3rem);border:1px solid var(--line);margin-block:2rem}
 .dance{background:#fffafb}
 .dance-art{padding:.28rem;border-radius:6px}
-.dance-art img{aspect-ratio:4/3}
+.dance-art canvas{display:block;width:100%;height:auto;border-radius:4px}
+.dance-art figcaption{padding:.4rem;text-align:center}
 .dance-list{display:grid;gap:.3rem}
 .dance-list span{font:500 italic clamp(1.35rem,4vw,2.35rem) var(--serif);border-bottom:1px solid var(--line);padding:.18rem .7rem;color:var(--rose)}
 .flower-section{text-align:center;padding:1rem 0}
@@ -98,7 +99,10 @@ footer{font-size:.9rem;color:var(--muted)}
         <p>Nahla loves ballet and jazz. Here, she and Avik take a moment to slow dance together.</p>
         <div class="dance-list"><span>Ballet</span><span>Jazz</span><span>And more</span></div>
       </div>
-      <figure class="dance-art"><img src="nahla-and-avik.jpg" alt="A storybook illustration of Nahla and Avik slow dancing together in a pink studio."></figure>
+      <figure class="dance-art">
+        <canvas width="640" height="440" role="img" aria-label="Animated cartoon of Nahla and Avik holding hands and slow dancing.">Nahla and Avik slow dance under pink string lights.</canvas>
+        <figcaption><button id="dance-playback" type="button">Pause dance</button></figcaption>
+      </figure>
     </section>
     <section id="flowers" class="flower-section">
       <p class="eyebrow">Nahla’s bouquet</p><h2>Her favorite flowers</h2>
@@ -140,5 +144,6 @@ for (const option of engravingOptions) {
   });
 }
 </script>
+<script src="slow-dance.js" defer></script>
 </body>
 </html>
