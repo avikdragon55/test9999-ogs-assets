@@ -42,6 +42,8 @@ dd{margin:0;font:600 clamp(1.2rem,4vw,1.75rem) var(--serif)}
 .swatch{display:inline-block;width:.65em;height:.65em;border:1px solid #b96382;background:#f49ebd;border-radius:50%}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:clamp(1.25rem,5vw,3rem);border:1px solid var(--line);margin-block:2rem}
 .dance{background:#fffafb}
+.dance-art{padding:.28rem;border-radius:6px}
+.dance-art img{aspect-ratio:4/3}
 .dance-list{display:grid;gap:.3rem}
 .dance-list span{font:500 italic clamp(1.35rem,4vw,2.35rem) var(--serif);border-bottom:1px solid var(--line);padding:.18rem .7rem;color:var(--rose)}
 .flower-section{text-align:center;padding:1rem 0}
@@ -91,8 +93,12 @@ footer{font-size:.9rem;color:var(--muted)}
       <dl><div><dt>Birthday</dt><dd>March 6</dd></div><div><dt>Age</dt><dd>13</dd></div><div><dt>Favorite color</dt><dd>Pink <span class="swatch" aria-hidden="true"></span></dd></div></dl>
     </section>
     <section class="dance split" id="dance">
-      <div><p class="eyebrow">On the dance floor</p><h2>Always dancing</h2><p>From ballet to jazz, there’s always another style to try.</p></div>
-      <div class="dance-list"><span>Ballet</span><span>Jazz</span><span>And more</span></div>
+      <div>
+        <h2>A slow dance</h2>
+        <p>Nahla loves ballet and jazz. Here, she and Avik take a moment to slow dance together.</p>
+        <div class="dance-list"><span>Ballet</span><span>Jazz</span><span>And more</span></div>
+      </div>
+      <figure class="dance-art"><img src="nahla-and-avik.jpg" alt="A storybook illustration of Nahla and Avik slow dancing together in a pink studio."></figure>
     </section>
     <section id="flowers" class="flower-section">
       <p class="eyebrow">Nahla’s bouquet</p><h2>Her favorite flowers</h2>
